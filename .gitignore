@@ -1,0 +1,9 @@
+# Local editor / Claude Code config
+.claude/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Vercel
+.vercel

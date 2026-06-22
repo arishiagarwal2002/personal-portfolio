@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arishi Agarwal — AI/ML Engineer & Data Scientist</title>
+  <meta name="description" content="Portfolio of Arishi Agarwal — MSc AI & ML candidate at QMUL. Building end-to-end AI systems: RAG, deep learning, time-series forecasting, and MLOps." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="nav-logo">AA</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="home" class="hero">
+    <div class="hero-blob"></div>
+    <div class="container hero-inner">
+
+      <!-- LEFT: Giant name + role -->
+      <div class="hero-text">
+        <p class="hero-hi">Hi, I'm</p>
+        <h1 class="hero-name">Arishi<br>Agarwal</h1>
+        <div class="hero-role"><span id="typewriter"></span></div>
+      </div>
+
+      <!-- RIGHT: Info panel -->
+      <div class="hero-info">
+        <div class="hero-avatar"><div class="avatar">AA</div></div>
+        <p class="hero-bio">
+          MSc Artificial Intelligence &amp; Machine Learning candidate at
+          <strong>Queen Mary University of London</strong>. Building end-to-end AI systems —
+          RAG pipelines, deep-learning classifiers, and time-series forecasting —
+          making complex models understandable and deployable.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="#contact" class="btn btn-outline">Get In Touch</a>
+        </div>
+        <div class="hero-foot">
+          <div class="hero-social">
+            <a href="https://linkedin.com/in/arishiagarwal" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://github.com/arishiagarwal2002" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="mailto:arishiagarwal2002@gmail.com" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="hstat"><span class="hn">8+</span><span class="hl">Projects</span></div>
+            <div class="hstat"><span class="hn">2</span><span class="hl">Internships</span></div>
+            <div class="hstat"><span class="hn">6+</span><span class="hl">Certs</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT (sidebar layout) ===== -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="s-wrap">
+        <div class="s-left">
+          <div class="section-label">About Me</div>
+          <h2 class="section-title">Turning Data<br>Into Decisions</h2>
+        </div>
+        <div class="s-right">
+          <div class="about-content">
+            <div class="about-text">
+              <p>I'm an <strong>MSc Artificial Intelligence &amp; Machine Learning</strong> candidate at Queen Mary University of London and a Computer Science graduate from Symbiosis Institute of Technology, Pune.</p>
+              <p>My work spans the full ML lifecycle — from ETL pipelines and feature engineering to model training, evaluation, and production deployment. I've built RAG systems with FAISS and LangChain, multi-modal deep-learning classifiers, and real-time computer vision pipelines.</p>
+              <p>My MSc dissertation focuses on <strong>spatio-temporal climate risk forecasting</strong> — combining autoencoder-based imputation, LSTM forecasting, and Monte Carlo Dropout uncertainty quantification over UK Met Office / NOAA series.</p>
+              <p>Passionate about applied AI research, open-source ML, and making complex models interpretable for non-technical stakeholders. Eligible to work full-time in the UK — Graduate Route eligible 2026.</p>
+            </div>
+            <div class="about-cards">
+              <div class="about-card">
+                <span class="about-icon">🎓</span>
+                <div><strong>MSc AI &amp; ML</strong><span>Queen Mary University of London</span></div>
+              </div>
+              <div class="about-card">
+                <span class="about-icon">📍</span>
+                <div><strong>London, UK</strong><span>Graduate Route eligible 2026</span></div>
+              </div>
+              <div class="about-card">
+                <span class="about-icon">🔬</span>
+                <div><strong>Research Focus</strong><span>Spatio-temporal forecasting &amp; uncertainty estimation</span></div>
+              </div>
+              <div class="about-card">
+                <span class="about-icon">💼</span>
+                <div><strong>Open to Roles</strong><span>AI/ML Engineer · Data Scientist · Software Engineer</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS (full-width) ===== -->
+  <section id="skills" class="section section-alt">
+    <div class="container">
+      <div class="section-label">Technical Skills</div>
+      <h2 class="section-title fw">What I Work With</h2>
+      <div class="skills-list">
+
+        <div class="skill-row">
+          <h3><span class="sk-num">01</span>Programming Languages</h3>
+          <div class="tags">
+            <span>Python</span><span>SQL</span><span>C++</span><span>JavaScript</span>
+            <span>HTML5 / CSS3</span><span>UNIX Shell</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <h3><span class="sk-num">02</span>Machine Learning &amp; AI</h3>
+          <div class="tags">
+            <span>PyTorch</span><span>TensorFlow</span><span>Keras</span><span>Scikit-learn</span>
+            <span>XGBoost</span><span>CNNs</span><span>RNNs / LSTMs</span><span>Vision Transformers</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <h3><span class="sk-num">03</span>Generative AI &amp; LLMs</h3>
+          <div class="tags">
+            <span>LLMs</span><span>BERT / BioBERT</span><span>RAG</span><span>LangChain</span>
+            <span>Hugging Face</span><span>OpenAI API</span><span>Vector Databases</span><span>Prompt Engineering</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <h3><span class="sk-num">04</span>Data Science &amp; Analytics</h3>
+          <div class="tags">
+            <span>Pandas</span><span>NumPy</span><span>Time-Series Forecasting</span>
+            <span>A/B Testing</span><span>EDA</span><span>Tableau</span><span>Power BI</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <h3><span class="sk-num">05</span>MLOps &amp; Deployment</h3>
+          <div class="tags">
+            <span>Docker</span><span>CI/CD</span><span>GitHub Actions</span>
+            <span>FastAPI</span><span>Flask</span><span>REST APIs</span><span>Model Monitoring</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <h3><span class="sk-num">06</span>Cloud &amp; Databases</h3>
+          <div class="tags">
+            <span>AWS (S3, EC2, SageMaker)</span><span>Azure</span><span>Vertex AI</span>
+            <span>MySQL</span><span>PostgreSQL</span><span>Apache Spark</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS (full-width) ===== -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-label">Projects</div>
+      <h2 class="section-title fw">Selected Work</h2>
+      <div class="projects-list">
+
+        <a href="https://github.com/arishiagarwal2002" target="_blank" rel="noopener" class="project-row category-research">
+          <span class="pr-num">01</span>
+          <div class="pr-main">
+            <div class="pr-head">
+              <h3>Climate Risk Prediction System</h3>
+              <span class="project-badge research">Research</span>
+            </div>
+            <span class="pr-type">MSc Dissertation · Ongoing</span>
+            <p class="pr-desc">End-to-end spatio-temporal forecasting that reconstructs missing UK Met Office / NOAA weather data and quantifies predictive uncertainty. Benchmarks ARIMA/SARIMA vs LSTM with Monte Carlo Dropout confidence intervals.</p>
+            <div class="project-stack">
+              <span>Python</span><span>LSTM</span><span>ARIMA</span><span>PyTorch</span><span>Autoencoder</span><span>Matplotlib</span>
+            </div>
+          </div>
+          <span class="pr-arrow">↗</span>
+        </a>
+
+        <a href="https://github.com/arishiagarwal2002" target="_blank" rel="noopener" class="project-row category-nlp">
+          <span class="pr-num">02</span>
+          <div class="pr-main">
+            <div class="pr-head">
+              <h3>FastAPI Dev Docs RAG System</h3>
+              <span class="project-badge nlp">NLP</span>
+            </div>
+            <span class="pr-type">RAG System</span>
+            <p class="pr-desc">Ingests 153 FastAPI Markdown docs into 2,208 FAISS-indexed passages. Dense, hybrid BM25+dense, and cross-encoder retrieval. BGE embeddings lifted Recall@5 from 0.75→0.92 and Correctness from 0.67→1.0.</p>
+            <div class="project-stack">
+              <span>Python</span><span>FAISS</span><span>LangChain</span><span>Ollama</span><span>sentence-transformers</span><span>OpenAI API</span>
+            </div>
+          </div>
+          <span class="pr-arrow">↗</span>
+        </a>
+
+        <a href="https://github.com/arishiagarwal2002" target="_blank" rel="noopener" class="project-row category-cv">
+          <span class="pr-num">03</span>
+          <div class="pr-main">
+            <div class="pr-head">
+              <h3>Multi-Modal Chest X-Ray Classifier</h3>
+              <span class="project-badge cv">Computer Vision</span>
+            </div>
+            <span class="pr-type">MSc Deep Learning</span>
+            <p class="pr-desc">ViT-B/16 vision encoder fused with BioBERT clinical-text encoder via cross-attention — classifying 14 chest diseases from X-rays and radiology notes simultaneously.</p>
+            <div class="project-stack">
+              <span>PyTorch</span><span>ViT-B/16</span><span>BioBERT</span><span>Cross-Attention</span>
+            </div>
+          </div>
+          <span class="pr-arrow">↗</span>
+        </a>
+
+        <a href="https://github.com/arishiagarwal2002" target="_blank" rel="noopener" class="project-row category-ml">
+          <span class="pr-num">04</span>
+          <div class="pr-main">
+            <div class="pr-head">
+              <h3>Asteroid Hazard Classification</h3>
+              <span class="project-badge ml">ML</span>
+            </div>
+            <span class="pr-type">BTech Major Project</span>
+            <p class="pr-desc">XGBoost classifier on NASA JPL dataset of 958,524 asteroids. Achieved ~98.5% accuracy, F1≈0.94, ROC-AUC≈1 with SMOTENC oversampling — outperforming Random Forest, Extra Trees, and MLP.</p>
+            <div class="project-stack">
+              <span>XGBoost</span><span>Scikit-learn</span><span>SMOTENC</span><span>Pandas</span>
+            </div>
+          </div>
+          <span class="pr-arrow">↗</span>
+        </a>
+
+        <a href="https://github.com/arishiagarwal2002" target="_blank" rel="noopener" class="project-row category-dl">
+          <span class="pr-num">05</span>
+          <div class="pr-main">
+            <div class="pr-head">
+              <h3>Exoplanet Radius Prediction</h3>
+              <span class="project-badge dl">Deep Learning</span>
+            </div>
+            <span class="pr-type">MSc AI/ML Coursework</span>
+            <p class="pr-desc">3-block 1D CNN on 3,847 NASA exoplanet systems predicting planetary radius from orbital/stellar features. Achieved R²=0.921 — beating MLP (0.887) and linear (0.743) baselines.</p>
+            <div class="project-stack">
+              <span>TensorFlow</span><span>1D CNN</span><span>NASA Archive</span><span>NumPy</span>
+            </div>
+          </div>
+          <span class="pr-arrow">↗</span>
+        </a>
+
+        <a href="https://github.com/arishiagarwal2002" target="_blank" rel="noopener" class="project-row category-cv">
+          <span class="pr-num">06</span>
+          <div class="pr-main">
+            <div class="pr-head">
+              <h3>Real-Time Facial Expression Recognition</h3>
+              <span class="project-badge cv">Computer Vision</span>
+            </div>
+            <span class="pr-type">Personal Project</span>
+            <p class="pr-desc">CNN trained on 35,000+ images across 7 emotion classes — 90% validation accuracy. Optimised inference to &lt;80 ms/frame (25 fps) via model pruning and batch normalisation.</p>
+            <div class="project-stack">
+              <span>TensorFlow</span><span>OpenCV</span><span>CNN</span><span>Python</span>
+            </div>
+          </div>
+          <span class="pr-arrow">↗</span>
+        </a>
+
+        <a href="https://github.com/arishiagarwal2002" target="_blank" rel="noopener" class="project-row category-web">
+          <span class="pr-num">07</span>
+          <div class="pr-main">
+            <div class="pr-head">
+              <h3>Sneaker Exchange Platform</h3>
+              <span class="project-badge web">Web</span>
+            </div>
+            <span class="pr-type">Full-Stack Project</span>
+            <p class="pr-desc">Peer-to-peer marketplace (auth, listings, cart) built to WCAG 2.1 from 20+ Figma wireframes. REST API integration — usability testing with 10 users cut task-completion time 25%.</p>
+            <div class="project-stack">
+              <span>JavaScript</span><span>REST API</span><span>Figma</span><span>HTML/CSS</span>
+            </div>
+          </div>
+          <span class="pr-arrow">↗</span>
+        </a>
+
+        <a href="https://github.com/arishiagarwal2002" target="_blank" rel="noopener" class="project-row category-db">
+          <span class="pr-num">08</span>
+          <div class="pr-main">
+            <div class="pr-head">
+              <h3>Library Management System</h3>
+              <span class="project-badge db">Database</span>
+            </div>
+            <span class="pr-type">Backend Project</span>
+            <p class="pr-desc">Full CRUD over a normalised MySQL schema with indexing that cut average retrieval time 35% and supported 100 concurrent users. OOP/MVC architecture separating business logic and data access.</p>
+            <div class="project-stack">
+              <span>Python</span><span>MySQL</span><span>OOP</span><span>MVC</span>
+            </div>
+          </div>
+          <span class="pr-arrow">↗</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE (sidebar layout) ===== -->
+  <section id="experience" class="section section-alt">
+    <div class="container">
+      <div class="s-wrap">
+        <div class="s-left">
+          <div class="section-label">Experience</div>
+          <h2 class="section-title">Where I've<br>Worked</h2>
+        </div>
+        <div class="s-right">
+          <div class="timeline">
+
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-card">
+                <div class="tl-header">
+                  <div>
+                    <h3>Python Developer Intern</h3>
+                    <span class="tl-company">Suntist Labs</span>
+                  </div>
+                  <div class="tl-meta">
+                    <span>Jan 2024 – Jun 2024</span>
+                    <span>Delhi, India</span>
+                  </div>
+                </div>
+                <ul class="tl-bullets">
+                  <li>Engineered a real-time <strong>YOLOv3 + OpenCV</strong> object-detection pipeline, cutting false positives 12% through iterative hyperparameter tuning on custom labelled datasets.</li>
+                  <li>Refactored Python preprocessing (Pandas, NumPy) for 30% higher throughput; unit-tested and deployed 3 production modules in agile sprints, reducing release-cycle time ~20%.</li>
+                </ul>
+                <div class="tl-tags">
+                  <span>Python</span><span>YOLOv3</span><span>OpenCV</span><span>Pandas</span><span>Agile</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-card">
+                <div class="tl-header">
+                  <div>
+                    <h3>Data Analytics Trainee</h3>
+                    <span class="tl-company">MedTourEasy</span>
+                  </div>
+                  <div class="tl-meta">
+                    <span>Jun 2023 – Dec 2023</span>
+                    <span>Remote</span>
+                  </div>
+                </div>
+                <ul class="tl-bullets">
+                  <li>Performed EDA and SQL analysis on 50,000+ patient records, improving data integrity 15%; built C-suite <strong>Tableau</strong> dashboards that informed 3 strategic decisions.</li>
+                  <li>Streamlined MySQL ETL workflows, cutting manual-entry errors 40%; applied statistical trend analysis improving lead-targeting accuracy 10%.</li>
+                </ul>
+                <div class="tl-tags">
+                  <span>SQL</span><span>MySQL</span><span>Tableau</span><span>ETL</span><span>EDA</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EDUCATION (sidebar layout) ===== -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="s-wrap">
+        <div class="s-left">
+          <div class="section-label">Education</div>
+          <h2 class="section-title">Academic<br>Background</h2>
+        </div>
+        <div class="s-right">
+
+          <div class="edu-grid">
+            <div class="edu-card">
+              <div class="edu-icon">🎓</div>
+              <div class="edu-body">
+                <h3>MSc Artificial Intelligence &amp; Machine Learning</h3>
+                <span class="edu-school">Queen Mary University of London</span>
+                <span class="edu-date">Sept 2025 – Sept 2026 · London, UK</span>
+                <p class="edu-note"><strong>Dissertation:</strong> Climate Risk Prediction System — Interpolation &amp; Forecasting of Weather Data. Supervised by Prof. Arthur, QMUL.</p>
+              </div>
+            </div>
+            <div class="edu-card">
+              <div class="edu-icon">🏛️</div>
+              <div class="edu-body">
+                <h3>BTech Computer Science Engineering</h3>
+                <span class="edu-school">Symbiosis Institute of Technology, Pune</span>
+                <span class="edu-date">2020 – 2024 · Pune, India</span>
+                <p class="edu-note"><strong>Major Project:</strong> Asteroid Hazard Classification using XGBoost on NASA JPL dataset (958,524 asteroids, ~98.5% accuracy).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection-label">Certifications</div>
+          <div class="certs-grid">
+            <div class="cert-card"><span class="cert-icon">☁️</span><div><strong>AWS Certified ML Engineer – Associate</strong><span>Amazon Web Services · In Progress</span></div></div>
+            <div class="cert-card"><span class="cert-icon">🎓</span><div><strong>CS50: Intro to Computer Science</strong><span>Harvard / edX</span></div></div>
+            <div class="cert-card"><span class="cert-icon">🤖</span><div><strong>Deep Learning Specialisation</strong><span>deeplearning.ai · In Progress</span></div></div>
+            <div class="cert-card"><span class="cert-icon">⚡</span><div><strong>Machine Learning &amp; Automation</strong><span>MIT</span></div></div>
+            <div class="cert-card"><span class="cert-icon">🐍</span><div><strong>Python for Data Science &amp; AI</strong><span>IBM · In Progress</span></div></div>
+            <div class="cert-card"><span class="cert-icon">🎨</span><div><strong>UI/UX Design with Figma</strong><span>Coursera</span></div></div>
+          </div>
+
+          <div class="subsection-label">Awards &amp; Achievements</div>
+          <div class="awards-list">
+            <div class="award-item">
+              <span class="award-place">🥈 2nd Place</span>
+              <div><strong>Tinkerfest IoT Challenge</strong><span>Home-automation prototype with embedded sensors + Python control interface</span></div>
+            </div>
+            <div class="award-item">
+              <span class="award-place">🥉 3rd Place</span>
+              <div><strong>N-Crypt N-Code Coding Contest</strong><span>Algorithmic problem-solving vs 200+ participants</span></div>
+            </div>
+            <div class="award-item">
+              <span class="award-place">🏆 Finalist</span>
+              <div><strong>Crackathon National Hackathon</strong><span>Working solution in a 24-hour sprint — KJ Somaiya College of Engineering</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT (sidebar layout) ===== -->
+  <section id="contact" class="section section-alt">
+    <div class="container">
+      <div class="s-wrap">
+        <div class="s-left">
+          <div class="section-label">Contact</div>
+          <h2 class="section-title">Let's<br>Connect</h2>
+        </div>
+        <div class="s-right">
+          <p class="contact-sub">Open to AI/ML, Data Science, and Software Engineering roles. Based in London — eligible to work full-time in the UK.</p>
+          <div class="contact-links">
+              <a href="mailto:arishiagarwal2002@gmail.com" class="contact-card">
+                <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+                <div><strong>Email</strong><span>arishiagarwal2002@gmail.com</span></div>
+              </a>
+              <a href="https://linkedin.com/in/arishiagarwal" target="_blank" rel="noopener" class="contact-card">
+                <div class="contact-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+                <div><strong>LinkedIn</strong><span>linkedin.com/in/arishiagarwal</span></div>
+              </a>
+              <a href="https://github.com/arishiagarwal2002" target="_blank" rel="noopener" class="contact-card">
+                <div class="contact-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></div>
+                <div><strong>GitHub</strong><span>github.com/arishiagarwal2002</span></div>
+              </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2026 Arishi Agarwal · Built with HTML, CSS &amp; JavaScript</p>
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/arishiagarwal" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/arishiagarwal2002" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:arishiagarwal2002@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
