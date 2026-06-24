@@ -28,6 +28,16 @@ function type() {
 }
 type();
 
+/* ===== THEME TOGGLE ===== */
+const themeToggle = document.getElementById('themeToggle');
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+}
+
 /* ===== NAVBAR ===== */
 const navbar    = document.getElementById('navbar');
 const navLinks  = document.getElementById('navLinks');
