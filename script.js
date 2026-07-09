@@ -1,41 +1,32 @@
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const finePointer = matchMedia('(pointer: fine)').matches;
+
 /* ===== TYPEWRITER ===== */
 const roles = [
-  'AI/ML Engineer',
+  'AI / ML Engineer',
   'Data Scientist',
-  'Python Developer',
-  'Deep Learning Researcher',
-  'MSc Student @ QMUL',
+  'Machine Learning Engineer',
+  'NLP & RAG Developer',
+  'MSc AI Candidate @ QMUL',
 ];
 
-let roleIdx = 0, charIdx = 0, deleting = false;
 const tw = document.getElementById('typewriter');
-
-function type() {
-  const word = roles[roleIdx];
-  if (deleting) {
-    tw.innerHTML = word.slice(0, charIdx - 1) + '<span class="cursor"></span>';
-    charIdx--;
+if (tw) {
+  if (reduceMotion) {
+    tw.textContent = roles[0];
   } else {
-    tw.innerHTML = word.slice(0, charIdx + 1) + '<span class="cursor"></span>';
-    charIdx++;
+    let roleIdx = 0, charIdx = 0, deleting = false;
+    (function type() {
+      const word = roles[roleIdx];
+      charIdx += deleting ? -1 : 1;
+      tw.innerHTML = word.slice(0, charIdx) + '<span class="cursor"></span>';
+
+      let delay = deleting ? 45 : 85;
+      if (!deleting && charIdx === word.length) { delay = 2200; deleting = true; }
+      else if (deleting && charIdx === 0) { deleting = false; roleIdx = (roleIdx + 1) % roles.length; delay = 350; }
+      setTimeout(type, delay);
+    })();
   }
-
-  let delay = deleting ? 55 : 95;
-  if (!deleting && charIdx === word.length) { delay = 2200; deleting = true; }
-  else if (deleting && charIdx === 0)        { deleting = false; roleIdx = (roleIdx + 1) % roles.length; delay = 380; }
-
-  setTimeout(type, delay);
-}
-type();
-
-/* ===== THEME TOGGLE ===== */
-const themeToggle = document.getElementById('themeToggle');
-if (themeToggle) {
-  themeToggle.addEventListener('click', () => {
-    const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    try { localStorage.setItem('theme', next); } catch (e) {}
-  });
 }
 
 /* ===== NAVBAR ===== */
@@ -45,7 +36,7 @@ const navToggle = document.getElementById('navToggle');
 
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 20);
-});
+}, { passive: true });
 
 navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
 navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
@@ -60,78 +51,136 @@ const sectionObserver = new IntersectionObserver(entries => {
       links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${e.target.id}`));
     }
   });
-}, { threshold: 0.4 });
-
+}, { threshold: 0.35 });
 sections.forEach(s => sectionObserver.observe(s));
 
 /* ===== SCROLL REVEAL (with stagger) ===== */
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+}, { threshold: 0.08 });
 
-// Simple fade-up targets
-document.querySelectorAll(
-  '.section-title, .section-label, .subsection-label, .about-text, .contact-sub'
-).forEach(el => el.classList.add('reveal'));
-
-// Staggered groups: children fade up one after another
-const staggerGroups = [
-  '.about-cards', '.skills-list', '.projects-list', '.timeline',
-  '.edu-grid', '.certs-grid', '.awards-list', '.contact-links',
-];
-staggerGroups.forEach(sel => {
-  document.querySelectorAll(sel).forEach(group => {
-    group.classList.add('stagger');
-    [...group.children].forEach((kid, i) => {
-      kid.style.setProperty('--reveal-delay', `${Math.min(i * 70, 420)}ms`);
-    });
+document.querySelectorAll('.stagger').forEach(parent => {
+  [...parent.children].forEach((child, i) => {
+    child.classList.add('reveal');
+    child.style.transitionDelay = Math.min(i * 70, 420) + 'ms';
   });
 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-const revealObserver = new IntersectionObserver((entries, obs) => {
+/* ===== COUNT-UP STATS ===== */
+const counterObserver = new IntersectionObserver(entries => {
   entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    if (!e.isIntersecting) return;
+    counterObserver.unobserve(e.target);
+    const el = e.target;
+    const target = +el.dataset.count;
+    if (reduceMotion) { el.textContent = target; return; }
+    const t0 = performance.now(), dur = 1200;
+    (function tick(now) {
+      const p = Math.min((now - t0) / dur, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(tick);
+    })(t0);
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
 
-document.querySelectorAll('.reveal, .stagger').forEach(el => revealObserver.observe(el));
-
-/* ===== HERO MESH PARALLAX (subtle) ===== */
-const mesh = document.querySelector('.hero-blob');
-const heroEl = document.querySelector('.hero');
-if (mesh && heroEl && !reduceMotion) {
-  heroEl.addEventListener('mousemove', e => {
-    const r = heroEl.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5;
-    const y = (e.clientY - r.top) / r.height - 0.5;
-    mesh.style.transform = `translate3d(${x * -24}px, ${y * -24}px, 0)`;
-  });
-  heroEl.addEventListener('mouseleave', () => { mesh.style.transform = ''; });
-}
-
-/* ===== STAT COUNT-UP ===== */
-function countUp(el) {
-  const raw = el.textContent.trim();
-  const target = parseInt(raw, 10);
-  if (isNaN(target)) return;
-  const suffix = raw.replace(/[0-9]/g, '');
-  const duration = 1100;
-  const start = performance.now();
-  function tick(now) {
-    const p = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - p, 3);
-    el.textContent = Math.round(target * eased) + suffix;
-    if (p < 1) requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-}
-
-const statNums = document.querySelectorAll('.hstat .hn');
-if (reduceMotion) {
-  // leave values as-is
-} else {
-  const statObserver = new IntersectionObserver((entries, obs) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { countUp(e.target); obs.unobserve(e.target); }
+/* ===== CARD SPOTLIGHT (mouse-following highlight) ===== */
+if (finePointer) {
+  document.querySelectorAll('.glass-hover').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
     });
-  }, { threshold: 0.6 });
-  statNums.forEach(n => statObserver.observe(n));
+  });
 }
+
+/* ===== CURSOR GLOW ===== */
+if (finePointer && !reduceMotion) {
+  const glow = document.createElement('div');
+  glow.className = 'cursor-glow';
+  document.body.appendChild(glow);
+  let tx = innerWidth / 2, ty = innerHeight / 2, x = tx, y = ty;
+  addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
+  (function loop() {
+    x += (tx - x) * 0.08;
+    y += (ty - y) * 0.08;
+    glow.style.transform = `translate(${x - 300}px, ${y - 300}px)`;
+    requestAnimationFrame(loop);
+  })();
+}
+
+/* ===== NEURAL NETWORK BACKGROUND ===== */
+(function neural() {
+  const canvas = document.getElementById('neuralCanvas');
+  if (!canvas || reduceMotion) return;
+
+  const ctx = canvas.getContext('2d');
+  const hero = canvas.parentElement;
+  const N = innerWidth < 768 ? 28 : 62;
+  const LINK = 135;
+  const mouse = { x: -9999, y: -9999 };
+  let W, H, nodes = [], running = false, rafId;
+
+  function resize() {
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    W = hero.clientWidth; H = hero.clientHeight;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function init() {
+    nodes = Array.from({ length: N }, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35,
+      r: Math.random() * 1.5 + .7,
+    }));
+  }
+
+  function step() {
+    ctx.clearRect(0, 0, W, H);
+    for (const n of nodes) {
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0 || n.x > W) n.vx *= -1;
+      if (n.y < 0 || n.y > H) n.vy *= -1;
+    }
+    for (let i = 0; i < nodes.length; i++) {
+      const a = nodes[i];
+      for (let j = i + 1; j < nodes.length; j++) {
+        const b = nodes[j];
+        const d = Math.hypot(a.x - b.x, a.y - b.y);
+        if (d < LINK) {
+          ctx.strokeStyle = `rgba(129,140,248,${(1 - d / LINK) * .13})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+        }
+      }
+      const dm = Math.hypot(a.x - mouse.x, a.y - mouse.y);
+      if (dm < LINK * 1.25) {
+        ctx.strokeStyle = `rgba(56,189,248,${(1 - dm / (LINK * 1.25)) * .22})`;
+        ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
+      }
+      ctx.fillStyle = 'rgba(148,163,184,.5)';
+      ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2); ctx.fill();
+    }
+    rafId = requestAnimationFrame(step);
+  }
+
+  addEventListener('resize', () => { resize(); init(); }, { passive: true });
+  hero.addEventListener('mousemove', e => {
+    const r = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+  }, { passive: true });
+  hero.addEventListener('mouseleave', () => { mouse.x = mouse.y = -9999; });
+
+  resize(); init();
+
+  // Only animate while the hero is on screen
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting && !running) { running = true; step(); }
+    else if (!e.isIntersecting && running) { running = false; cancelAnimationFrame(rafId); }
+  }).observe(hero);
+})();
